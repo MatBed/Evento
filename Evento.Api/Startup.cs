@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Evento.Core.Repositories;
 using Evento.Infrastructure.Mappers;
 using Evento.Infrastructure.Repositories;
 using Evento.Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -14,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 
 namespace Evento.Api
@@ -37,7 +40,17 @@ namespace Evento.Api
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IEventService, EventService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddSingleton(AutoMapperConfig.Initialize());
+            
+            services.AddAuthentication().AddJwtBearer(options => {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidIssuer = "https://localhost:44305/",
+                    ValidateAudience = false,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("secret"))
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
