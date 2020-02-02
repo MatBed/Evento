@@ -7,6 +7,7 @@ using Evento.Core.Repositories;
 using Evento.Infrastructure.Mappers;
 using Evento.Infrastructure.Repositories;
 using Evento.Infrastructure.Services;
+using Evento.Infrastructure.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,18 +38,24 @@ namespace Evento.Api
                 .AddJsonOptions(x => x.SerializerSettings.Formatting = Formatting.Indented)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddAuthorization(x => x.AddPolicy("HasAdminRole", p => p.RequireRole("admin")));
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<IUserService, UserService>();
             services.AddSingleton(AutoMapperConfig.Initialize());
-            
-            services.AddAuthentication().AddJwtBearer(options => {
+            services.AddSingleton<IJwtHandler, JwtHandler>();
+            services.Configure<JwtSettings>(Configuration.GetSection("jwt"));
+
+            var sp = services.BuildServiceProvider();
+            var jwtSettings = sp.GetService<IOptions<JwtSettings>>();
+
+             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => {
                 options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidIssuer = "https://localhost:44305/",
+                {                    
+                    ValidIssuer = jwtSettings.Value.Issuer, //"https://localhost:44305/",
                     ValidateAudience = false,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("secret"))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Value.Key))
                 };
             });
         }
@@ -65,6 +72,7 @@ namespace Evento.Api
                 app.UseHsts();
             }
 
+            app.UseAuthentication();
             app.UseHttpsRedirection();
             app.UseMvc();
         }
