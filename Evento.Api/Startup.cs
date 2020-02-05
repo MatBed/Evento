@@ -43,6 +43,7 @@ namespace Evento.Api
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ITicketService, TicketService>();
             services.AddSingleton(AutoMapperConfig.Initialize());
             services.AddSingleton<IJwtHandler, JwtHandler>();
             services.Configure<JwtSettings>(Configuration.GetSection("jwt"));

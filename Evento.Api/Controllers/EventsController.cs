@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Evento.Api.Controllers
 {
-    public class EventsController : ApiControllerBaseController
+    public class EventsController : ApiControllerBase
     {
         private readonly IEventService _eventService;
 

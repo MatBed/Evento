@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Evento.Api.Controllers
 {
     [Route("[controller]")]
-    public class ApiControllerBaseController : Controller
+    public class ApiControllerBase : Controller
     {
         protected Guid UserId => User?.Identity?.IsAuthenticated == true
             ? Guid.Parse(User.Identity.Name)
