@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "1bfd566e-2a11-4228-a721-92f045497086",
+		"name": "Evento",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get tickets for user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwYTZlYTJkYy05ZTQ3LTQzNmYtODFiMi05YTQ2MDE0MTE3OTkiLCJ1bmlxdWVfbmFtZSI6IjBhNmVhMmRjLTllNDctNDM2Zi04MWIyLTlhNDYwMTQxMTc5OSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImFkbWluIiwianRpIjoiYmVlMjkwYzUtYzhhYS00MGIxLTk1ZmEtZTA4NTdkNDQ3Yjk4IiwiaWF0IjoiMTI5NjkyNTYxMjIxNiIsIm5iZiI6MTU4MDkyMjQxMiwiZXhwIjoxNTgwOTI2MDEyLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwNS8ifQ.Zqs6KqaHIdi5I3Cz1SCXnM0l4Pd3aCYLV8I8ltc6b4Q",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44305/account/tickets",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44305",
+					"path": [
+						"account",
+						"tickets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ticket for event",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YmQ5ODI4OS01Yjk5LTQyYWItODM3MC1hZTQ2YzA1YTNiNzEiLCJ1bmlxdWVfbmFtZSI6IjliZDk4Mjg5LTViOTktNDJhYi04MzcwLWFlNDZjMDVhM2I3MSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImFkbWluIiwianRpIjoiMjE5ZjFhMmMtMTYxZC00Y2U5LWEyMzItZWZmY2I1NTRiOWEzIiwiaWF0IjoiMTI5NjkyNDU3ODE2OCIsIm5iZiI6MTU4MDkyMTM3OCwiZXhwIjoxNTgwOTI0OTc4LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwNS8ifQ.CG8TAkrqSAfqHbJ3qOw2nQYqGLu-gCH8-9-TozknbrI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44305/events/event_id/tickets/ticket_id",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44305",
+					"path": [
+						"events",
+						"event_id",
+						"tickets",
+						"ticket_id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Return purchased tickets",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5YmQ5ODI4OS01Yjk5LTQyYWItODM3MC1hZTQ2YzA1YTNiNzEiLCJ1bmlxdWVfbmFtZSI6IjliZDk4Mjg5LTViOTktNDJhYi04MzcwLWFlNDZjMDVhM2I3MSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImFkbWluIiwianRpIjoiMjE5ZjFhMmMtMTYxZC00Y2U5LWEyMzItZWZmY2I1NTRiOWEzIiwiaWF0IjoiMTI5NjkyNDU3ODE2OCIsIm5iZiI6MTU4MDkyMTM3OCwiZXhwIjoxNTgwOTI0OTc4LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwNS8ifQ.CG8TAkrqSAfqHbJ3qOw2nQYqGLu-gCH8-9-TozknbrI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44305/events/event_id/tickets/cancel/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44305",
+					"path": [
+						"events",
+						"event_id",
+						"tickets",
+						"cancel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buy tickets",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwYTZlYTJkYy05ZTQ3LTQzNmYtODFiMi05YTQ2MDE0MTE3OTkiLCJ1bmlxdWVfbmFtZSI6IjBhNmVhMmRjLTllNDctNDM2Zi04MWIyLTlhNDYwMTQxMTc5OSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImFkbWluIiwianRpIjoiYmVlMjkwYzUtYzhhYS00MGIxLTk1ZmEtZTA4NTdkNDQ3Yjk4IiwiaWF0IjoiMTI5NjkyNTYxMjIxNiIsIm5iZiI6MTU4MDkyMjQxMiwiZXhwIjoxNTgwOTI2MDEyLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwNS8ifQ.Zqs6KqaHIdi5I3Cz1SCXnM0l4Pd3aCYLV8I8ltc6b4Q",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44305/events/event_id/tickets/purchase/15",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44305",
+					"path": [
+						"events",
+						"event_id",
+						"tickets",
+						"purchase",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwYTZlYTJkYy05ZTQ3LTQzNmYtODFiMi05YTQ2MDE0MTE3OTkiLCJ1bmlxdWVfbmFtZSI6IjBhNmVhMmRjLTllNDctNDM2Zi04MWIyLTlhNDYwMTQxMTc5OSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImFkbWluIiwianRpIjoiYmVlMjkwYzUtYzhhYS00MGIxLTk1ZmEtZTA4NTdkNDQ3Yjk4IiwiaWF0IjoiMTI5NjkyNTYxMjIxNiIsIm5iZiI6MTU4MDkyMjQxMiwiZXhwIjoxNTgwOTI2MDEyLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwNS8ifQ.Zqs6KqaHIdi5I3Cz1SCXnM0l4Pd3aCYLV8I8ltc6b4Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwODVlNTQ0Yi02MzIzLTRlOGUtOTQ4Yi1hOTYxNTMxOGNlNDkiLCJ1bmlxdWVfbmFtZSI6IjA4NWU1NDRiLTYzMjMtNGU4ZS05NDhiLWE5NjE1MzE4Y2U0OSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6InVzZXIiLCJqdGkiOiJlMWU4YTFhMy1kM2MxLTQ4MWQtOTdmMi1jYWZmY2QwZWM2MWYiLCJpYXQiOiIxMjk2NjcwNTgwODc1IiwibmJmIjoxNTgwNjY3MzgwLCJleHAiOjE1ODA2NzA5ODAsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjQ0MzA1LyJ9.XtFrjP8R-1aKSKfgD13HRkxrKFJXgNnbp4MxHG358mY",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44305/account",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44305",
+					"path": [
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"admin@test.pl\",\n\t\"password\": \"secret\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44305/account/login",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44305",
+					"path": [
+						"account",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"admin@test.pl\",\n\t\"password\": \"secret\",\n\t\"name\": \"Test user\",\n\t\"role\": \"admin\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44305/account/register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44305",
+					"path": [
+						"account",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete event",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44305/events/event_id",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44305",
+					"path": [
+						"events",
+						"event_id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create event",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwYTZlYTJkYy05ZTQ3LTQzNmYtODFiMi05YTQ2MDE0MTE3OTkiLCJ1bmlxdWVfbmFtZSI6IjBhNmVhMmRjLTllNDctNDM2Zi04MWIyLTlhNDYwMTQxMTc5OSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImFkbWluIiwianRpIjoiYmVlMjkwYzUtYzhhYS00MGIxLTk1ZmEtZTA4NTdkNDQ3Yjk4IiwiaWF0IjoiMTI5NjkyNTYxMjIxNiIsIm5iZiI6MTU4MDkyMjQxMiwiZXhwIjoxNTgwOTI2MDEyLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwNS8ifQ.Zqs6KqaHIdi5I3Cz1SCXnM0l4Pd3aCYLV8I8ltc6b4Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlZGI3ZjkxZC05ODIzLTRiMWQtODM0OC1lOTU1MTQyYWYzMDciLCJ1bmlxdWVfbmFtZSI6ImVkYjdmOTFkLTk4MjMtNGIxZC04MzQ4LWU5NTUxNDJhZjMwNyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImFkbWluIiwianRpIjoiNGMxZDY3ZTMtZDQ3Zi00OWJiLWFiYjktN2I5OGZhM2RkMTAwIiwiaWF0IjoiMTI5NjY3MjY4Mjc1MSIsIm5iZiI6MTU4MDY2OTQ4MiwiZXhwIjoxNTgwNjczMDgyLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwNS8ifQ.L-tz0BMOYHgX1cbH5YVRWYiLfZq-blmper3UEO2Z9sk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"My event\",\n\t\"description\": \"My event description\",\n\t\"startDate\": \"2020-01-15\",\n\t\"endDate\": \"2020-01-16\",\n\t\"tickets\": 100,\n\t\"price\": 50\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44305/events",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44305",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update event",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlZGI3ZjkxZC05ODIzLTRiMWQtODM0OC1lOTU1MTQyYWYzMDciLCJ1bmlxdWVfbmFtZSI6ImVkYjdmOTFkLTk4MjMtNGIxZC04MzQ4LWU5NTUxNDJhZjMwNyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImFkbWluIiwianRpIjoiNGMxZDY3ZTMtZDQ3Zi00OWJiLWFiYjktN2I5OGZhM2RkMTAwIiwiaWF0IjoiMTI5NjY3MjY4Mjc1MSIsIm5iZiI6MTU4MDY2OTQ4MiwiZXhwIjoxNTgwNjczMDgyLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwNS8ifQ.L-tz0BMOYHgX1cbH5YVRWYiLfZq-blmper3UEO2Z9sk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlZGI3ZjkxZC05ODIzLTRiMWQtODM0OC1lOTU1MTQyYWYzMDciLCJ1bmlxdWVfbmFtZSI6ImVkYjdmOTFkLTk4MjMtNGIxZC04MzQ4LWU5NTUxNDJhZjMwNyIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6ImFkbWluIiwianRpIjoiNGMxZDY3ZTMtZDQ3Zi00OWJiLWFiYjktN2I5OGZhM2RkMTAwIiwiaWF0IjoiMTI5NjY3MjY4Mjc1MSIsIm5iZiI6MTU4MDY2OTQ4MiwiZXhwIjoxNTgwNjczMDgyLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwNS8ifQ.L-tz0BMOYHgX1cbH5YVRWYiLfZq-blmper3UEO2Z9sk",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"My event after update\",\n\t\"description\": \"My event description after update\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44305/events/event_id",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44305",
+					"path": [
+						"events",
+						"event_id"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
