@@ -29,8 +29,7 @@ namespace Evento.Core.Domain
             Id = id;
             SetName(name);
             SetDescription(description);
-            StartDate = startDate;
-            EndDate = endDate;
+            SetDates(startDate, endDate);
             CreatedAt = DateTime.UtcNow;
             UpdatedAt = DateTime.UtcNow;
         }
@@ -88,5 +87,14 @@ namespace Evento.Core.Domain
 
         public IEnumerable<Ticket> GetTicketsPurchasedByUser(User user)
             => PurchasedTickets.Where(x => x.UserId == user.Id);
+
+        public void SetDates(DateTime startDate, DateTime endDate)
+        {
+            if (startDate >= endDate)
+                throw new Exception($"Event with id: {Id} must have a and date greater than start date");
+
+            StartDate = startDate;
+            EndDate = endDate;
+        }
     }
 }
