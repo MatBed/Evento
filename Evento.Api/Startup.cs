@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Evento.Api.Framework;
 using Evento.Core.Repositories;
 using Evento.Infrastructure.Mappers;
 using Evento.Infrastructure.Repositories;
@@ -91,6 +92,7 @@ namespace Evento.Api
             app.UseHttpsRedirection();
             app.UseMvc();
             SeedData(app);
+            app.UseErrorHandler();
             appLiftime.ApplicationStopped.Register(() => Container.Dispose());
         }
 
